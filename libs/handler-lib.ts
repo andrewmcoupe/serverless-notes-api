@@ -1,5 +1,11 @@
-export default function handler(lambda) {
-  return async function (event, context) {
+import { APIGatewayEvent, Context, APIGatewayProxyResult } from "aws-lambda";
+
+interface CustomHandler {
+  (event: APIGatewayEvent, context?: Context): any;
+}
+
+export default function handler(lambda: CustomHandler): CustomHandler {
+  return async function (event, context): Promise<APIGatewayProxyResult> {
     let body, statusCode;
 
     try {
@@ -7,8 +13,6 @@ export default function handler(lambda) {
       body = await lambda(event, context);
       statusCode = 200;
     } catch (e) {
-      console.log(e);
-
       body = { error: e.message };
       statusCode = 500;
     }
