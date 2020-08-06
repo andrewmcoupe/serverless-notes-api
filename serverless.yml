@@ -29,6 +29,10 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+
 functions:
   create:
     handler: handlers/create.main
