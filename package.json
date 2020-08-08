@@ -5,7 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "test": "serverless-bundle test",
-    "tsc:repo": "tsc -p tsconfig.json --noEmit"
+    "tsc:repo": "tsc -p tsconfig.json --noEmit",
+    "prettier:check": "prettier '.' --check"
   },
   "author": "",
   "license": "MIT",
