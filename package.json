@@ -6,7 +6,8 @@
   "scripts": {
     "test": "serverless-bundle test",
     "tsc:repo": "tsc -p tsconfig.json --noEmit",
-    "prettier:check": "prettier '.' --check"
+    "prettier:check": "prettier '.' --check",
+    "prettier:fix": "prettier '.' --check --write"
   },
   "author": "",
   "license": "MIT",
