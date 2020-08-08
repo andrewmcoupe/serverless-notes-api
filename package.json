@@ -22,7 +22,8 @@
     "aws-sdk": "^2.725.0",
     "serverless-bundle": "^2.0.0",
     "serverless-dotenv-plugin": "^2.1.1",
-    "serverless-offline": "^5.3.3"
+    "serverless-offline": "^5.3.3",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "http-errors": "^1.8.0",
