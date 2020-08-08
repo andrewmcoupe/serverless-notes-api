@@ -1,4 +1,4 @@
-name: "Branch Check"
+name: 'Branch Check'
 
 on:
   push:
@@ -30,8 +30,8 @@ jobs:
       #   run: npm run prettier:check
       # - name: Check with ESLint
       #   run: npm run lint
-      # - name: Compile TypeScript
-      #   run: npm run tsc:repo
+      - name: Compile TypeScript
+        run: npm run tsc:repo
 
   unit-tests:
     runs-on: ubuntu-latest
