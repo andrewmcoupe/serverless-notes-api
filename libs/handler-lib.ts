@@ -1,20 +1,20 @@
-import { APIGatewayEvent, Context, APIGatewayProxyResult } from 'aws-lambda'
+import { APIGatewayEvent, Context, APIGatewayProxyResult } from 'aws-lambda';
 
 interface CustomHandler {
-  (event: APIGatewayEvent, context?: Context): any
+  (event: APIGatewayEvent, context?: Context): any;
 }
 
 export default function handler(lambda: CustomHandler): CustomHandler {
   return async function (event, context): Promise<APIGatewayProxyResult> {
-    let body, statusCode
+    let body, statusCode;
 
     try {
       // Run the Lambda
-      body = await lambda(event, context)
-      statusCode = 200
+      body = await lambda(event, context);
+      statusCode = 200;
     } catch (e) {
-      body = { error: e.message }
-      statusCode = 500
+      body = { error: e.message };
+      statusCode = 500;
     }
 
     // Return HTTP response
@@ -25,6 +25,6 @@ export default function handler(lambda: CustomHandler): CustomHandler {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true,
       },
-    }
-  }
+    };
+  };
 }

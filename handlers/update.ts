@@ -1,18 +1,18 @@
-import handler from '../libs/handler-lib'
-import dynamoDb from '../libs/dynamodb-lib'
-import { BadRequest } from '../errors'
-import { NOTES_TABLE_NAME } from '../constants'
+import handler from '../libs/handler-lib';
+import dynamoDb from '../libs/dynamodb-lib';
+import { BadRequest } from '../errors';
+import { NOTES_TABLE_NAME } from '../constants';
 
 export const main = handler(async (event) => {
   if (!event.body) {
-    return BadRequest('Event body must be provided')
+    return BadRequest('Event body must be provided');
   }
 
   if (!event.pathParameters?.id) {
-    return BadRequest('Path parameter ID must be provided')
+    return BadRequest('Path parameter ID must be provided');
   }
 
-  const data = JSON.parse(event.body)
+  const data = JSON.parse(event.body);
   const params = {
     TableName: NOTES_TABLE_NAME,
     Key: {
@@ -25,9 +25,9 @@ export const main = handler(async (event) => {
       ':content': data.content || null,
     },
     ReturnValues: 'ALL_NEW',
-  }
+  };
 
-  await dynamoDb.update(params)
+  await dynamoDb.update(params);
 
-  return { status: true }
-})
+  return { status: true };
+});
