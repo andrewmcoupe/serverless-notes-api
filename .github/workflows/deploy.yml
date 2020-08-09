@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@master
         with:
           path: |
-            ims/node_modules
+            node_modules
             ~/.cache
           key: v1-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
