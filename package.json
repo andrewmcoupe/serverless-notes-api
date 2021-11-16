@@ -22,7 +22,7 @@
     "@types/jest": "^26.0.8",
     "@types/uuid": "^8.0.1",
     "aws-lambda": "^1.0.6",
-    "aws-sdk": "^2.725.0",
+    "aws-sdk": "^2.814.0",
     "eslint": "^7.6.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
